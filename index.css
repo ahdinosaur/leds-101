@@ -103,3 +103,8 @@ img {
   max-width: 800px;
   max-height: 550px;
 }
+
+.thumbnail img, .thumbnail video {
+  display: inline;
+  width: 200px;
+}

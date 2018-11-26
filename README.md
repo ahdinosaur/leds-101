@@ -7,7 +7,7 @@ dinosaur.is/leds-101/
 ---
 class: center
 
-# an introduction to off-grid programmable LEDs
+# an introduction to off-grid programmable LED art
 
 slides: https://dinosaur.is/leds-101
 
@@ -22,7 +22,7 @@ class: center
 
 we're [Mikey](https://dinosaur.is) and [Ben](http://www.bennolan.com/)
 
-we've done some LED things before.
+we've done a few LED things before, learned some beeps and boops that we want to share!
 
 ???
 
@@ -48,10 +48,11 @@ class: center
 
 ## outline
 
-1. what are programmable LEDs?
-2. how do you control the LEDs? (arduino and basic programming)
-3. how do you connect to/from the LEDs? (soldering strips, JST plugs)
-4. how do you power the LEDs? (buck converters + 12v batteries or 18650s or AAs)
+1. programmable LEDs, what are they?
+2. how do you control them? (arduino and basic programming)
+3. how do you connect to/from them? (soldering strips, JST plugs)
+4. how do you power them? (buck converters + 12v batteries or 18650s or AAs)
+5. how do you diffuse them?
 
 with a bonus round of 'how to order the good shit from AliExpress'.
 
@@ -113,7 +114,7 @@ most common form is as a strip
 
 - 12v single-color LED strips
 - El-Wire
-- El-Plate
+- El-Panel
 - ???
 
 ---
@@ -132,6 +133,20 @@ there are 3 major parts to the system:
 
 to control your heap of LEDs, you will use a micro-controller (a small computer) to send messages over a wire to the first LED, who will relay extra messages to the next LED, and so on.
 
+???
+
+(you don't need to know this)
+
+### [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) (Serial Peripheral Interface)
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/SPI_single_slave.svg" />
+
+<img src="https://a.pololu-files.com/picture/0J6577.600.png?f2071ae9f33b8071ff69dd3a118b7ef1" />
+
+<img src="https://a.pololu-files.com/picture/0J6578.600.jpg?43cdc8b658def752351be635ab28978e" />
+
+reference: https://www.pololu.com/product/2552
+
 ---
 
 ### micro-controller
@@ -140,29 +155,9 @@ we will be using the popular Ardunio flavor of micro-controllers.
 
 ---
 
-### [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) (Serial Peripheral Interface)
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/SPI_single_slave.svg" />
-
-<img src="https://a.pololu-files.com/picture/0J6577.600.png?f2071ae9f33b8071ff69dd3a118b7ef1" />
-
-???
-
-reference: reference: https://www.pololu.com/product/2552
-
----
-
-### Pixel bits
-
-<img src="https://a.pololu-files.com/picture/0J6578.600.jpg?43cdc8b658def752351be635ab28978e" />
-
-???
-
-reference: https://www.pololu.com/product/2552
-
----
-
 ### [FastLED](http://fastled.io/)
+
+we will use a library _FastLED_ to help us code the LEDs.
 
 ```
 #include <FastLED.h>
@@ -187,6 +182,8 @@ void loop () {
 
 ### [HSV](https://en.wikipedia.org/wiki/HSL_and_HSV)
 
+compare to RGB color space
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/HSV_color_solid_cylinder_saturation_gray.png" />
 
 ---
@@ -204,11 +201,16 @@ strip: rainbow scroll
 
 ---
 
-### adding buttons
+### adding physical interfaces
 
----
+- buttons
+- rotary encoders
+- accelerometer
+- magnetometer
+- gryoscope
+- temperature gauge
 
-### adding rotary encoders
+e.g. [Teensy Prop Shield](https://nicegear.nz/product/teensy-prop-shield)
 
 ---
 
@@ -318,6 +320,19 @@ reference: https://learn.adafruit.com/sipping-power-with-neopixels
 
 ---
 
+### using many power supplies
+
+if you need to use many power supplies:
+
+- each power supply's GROUND is connected in common
+- each power supply's +5V is connected to **one** length of pixels
+
+???
+
+each power supply has slightly different +5V, if they are connected they will back-feed into each other and very bad things may happen.
+
+---
+
 ### 5v power supply
 
 ---
@@ -337,6 +352,51 @@ reference: https://learn.adafruit.com/sipping-power-with-neopixels
 ---
 
 ### aa batteries
+
+---
+class: center
+
+## diffusion
+
+LEDs are bright af!
+
+---
+class: center
+
+### what is a diffuser?
+
+<a href="https://forum.arduino.cc/index.php?topic=415472.0">
+  <img src="http://lonen-ledlighting.com/Public/Uploads/Ckeditor/images/PC_light_diffusion_agent_LED(2).jpg" />
+</a>
+
+???
+
+references:
+
+- https://hackaday.com/2018/08/15/friday-hack-chat-led-diffusion/
+- https://www.wikihow.com/Diffuse-Light
+
+---
+class: center
+
+### how does a diffuser work?
+
+<a href="http://close-uppity.derekhauffe.net/diffusion/">
+  <img src="http://close-uppity.derekhauffe.net/wp-content/uploads/2013/09/figure_1-01.jpg" />
+</a>
+
+???
+
+- must have some distance between light source and diffuser
+
+---
+
+### what are good diffusers?
+
+- good: dish foam (for packing your dishes in boxes)
+- good: bubble wrap
+- okay: baking paper
+- ???
 
 ---
 class: center

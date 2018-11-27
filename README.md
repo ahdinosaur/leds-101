@@ -9,7 +9,7 @@ class: center
 
 # an introduction to off-grid programmable LED art
 
-slides: https://dinosaur.is/leds-101
+slides: https://dinosaur.is/leds-101/
 
 source: https://github.com/ahdinosaur/leds-101
 

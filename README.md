@@ -62,7 +62,7 @@ class: center
 
 ## what are programmable LEDs?
 
-we're going to be playing with WS2018B or [APA102C](https://www.pololu.com/product/2552) (or [SK9822](https://www.pololu.com/product/3086)) LEDS.
+we're going to be playing with WS2812B or [APA102C](https://www.pololu.com/product/2552) (or [SK9822](https://www.pololu.com/product/3086)) LEDS.
 
 - each pixel is individually addressable (can be an independent color)
 - you talk to the LEDs over wire(s) using a protocol called [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)
@@ -126,9 +126,19 @@ most common form is as a strip
 
 to control your heap of LEDs, you will use a micro-controller (a small computer) to send messages over a wire to the first LED, who will relay extra messages to the next LED, and so on.
 
-???
+### Downloads:
 
-(you don't need to know this)
+* [Arduino IDE](https://www.arduino.cc/en/Main/Software)
+* [Fastled](http://fastled.io) - install from `Sketch -> Include Library -> Manage Libraries`
+* [CH340g driver](https://sparks.gogo.co.nz/ch340.html)
+
+(Chinese arduinos come with a non standard usb chip - called the ch340g - it works
+perfectly - but you need to installed the drivers for your operating system)
+
+#### Run example sketch
+
+Once you've installed the fastled library - go to `file -> examples -> fastled -> blink`. Click
+`Upload` and you should have a blinking led.
 
 ### [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) (Serial Peripheral Interface)
 
@@ -144,7 +154,7 @@ reference: https://www.pololu.com/product/2552
 
 ### micro-controller
 
-we will be using the popular Ardunio flavor of micro-controllers.
+we will be using the popular Arduino flavor of micro-controllers.
 
 - [Arduino Uno](https://store.arduino.cc/usa/arduino-uno-rev3)
   - <img width="100" src="./images/a000066_front_1_1_1.jpg" />
@@ -204,6 +214,7 @@ noise functions generate random numbers with smooth steps
 - magnetometer
 - gryoscope
 - temperature gauge
+- midi shield
 
 e.g. [Teensy Prop Shield](https://nicegear.nz/product/teensy-prop-shield)
 
@@ -239,7 +250,7 @@ and from each chain of LEDs to the next chain.
 
 ---
 
-### 4-pin jst connectors
+### 3-pin / 4-pin jst connectors
 
 - pre-installed on LED strips by default
 - useful wire-to-wire connector
@@ -247,7 +258,7 @@ and from each chain of LEDs to the next chain.
 
 ---
 
-### 4-pin header connectors
+### 3-pin / 4-pin header connectors
 
 https://www.amazon.com/gp/product/B0777BQC1P/
 
@@ -256,7 +267,7 @@ https://www.amazon.com/gp/product/B0777BQC1P/
 
 ---
 
-### 4-pin waterproof connectors
+### 3-pin / 4-pin waterproof connectors
 
 ---
 
@@ -336,13 +347,44 @@ each power supply has slightly different +5V, if they are connected they will ba
 
 ### 12v battery + dc step-down (buck) converter
 
----
+Depending on your needs you could get a small 7ah, medium 40ah or big honking
+120ah battery. Charge them off a 15w / 30w / 100w solar panel (using a `solar
+controller` from aliexpress). Can get 12v batteries from computer recycling shops,
+second hand, or from a friend that has access to big data centres (transpower?).
+
+The 12v battery is great for charging up and running all night, and will take
+power from a solar panel - but you can't power the LED strip directly.
+
+You'll need a `buck converter` (dc-dc step down), it takes 12-14 volts in
+and converts it to 5 volts. Buck converters are really cheap $1-$20 depending
+on how many amps you need to put through.
+
+Most cheap buck converters come with no preset voltage output, so you need to 
+use a multimeter to measure the output voltage, hook the input up to a 12 volt
+battery, then turn the eensy-weensy-tiny little screw many many times until
+the voltage going into the multimeter drops down to about 5 volts.
 
 ### 18650 batteries
+
+These are the lithium ion cells that are in a vape pen. You can get them by
+pulling apart a cylindrical (eg thinkpad) laptop battery pack, or buy them from
+pbtech or a vape shop (probably most expensive).
+
+You can get chargers (nitecore make good ones) to recharge your batteries before
+the burn, and you could take your charger to recharge your batteries if they
+go flat at the burn.
+
+You can buy 18650 holders from aliexpress that hold one battery and give
+you two leads that you can run to your arduino / leds.
 
 ---
 
 ### aa batteries
+
+Use 4 x AA's in a little holder (search for aa holder on aliexpress) to power your
+stuff. Rechargeable batteries are best. Eneloop make excellent rechargeables and
+a fast charger. The nitecore d4 charger can recharge AAs and will probably
+run quite well off a 12v system for recharging at the burn.
 
 ---
 class: center
@@ -350,6 +392,8 @@ class: center
 ## diffusion
 
 LEDs are bright af!
+
+Buy aluminum channel (aluminum profile) with a built in diffuser. Or use fabric.
 
 ---
 class: center
@@ -417,6 +461,42 @@ there are 3 major parts to the system:
 - power source:
   - if small, use usb power pack
   - if large, use deep cycle battery
+
+---
+
+### where to source parts
+
+- LEDs: Adafruit or AliExpress
+- LED connector: Adafruit or Amazon or AliExpress
+- controller: [NiceGear](https://nicegear.nz/product/teensy-lc)
+
+### How to aliexpress
+
+1. Find the right search term (arduino nano, ws2812b, buck converter).
+2. Search for that.
+3. Sort by 'most orders'
+
+Buy from the first seller you find with:
+
+* The thing you want
+* Free shipping 17-36 days (will probably arrive in 2 weeks)
+* The most orders
+* A pretty good price
+
+Order twice the quantity as you think you need, since if you break
+one or it arrives damaged, you won't be able to re-order before the 
+burn. Don't need to buy twice as much strip, but definitely buy one
+more roll than you think you'll need.
+
+Don't order lithium ion batteries (18650s) they will take 6 months to
+arrive.
+
+---
+
+### 
+
+
+---
 
 ---
 

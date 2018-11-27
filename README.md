@@ -140,6 +140,8 @@ perfectly - but you need to installed the drivers for your operating system)
 Once you've installed the fastled library - go to `file -> examples -> fastled -> blink`. Click
 `Upload` and you should have a blinking led.
 
+???
+
 ### [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) (Serial Peripheral Interface)
 
 <img src="./images/SPI_single_slave.svg" />
@@ -178,7 +180,7 @@ we will use a library _FastLED_ to help us code the LEDs.
 CRGB leds[NUM_LEDS];
 
 void setup () { 
-  FastLED.addLeds<APA102>(leds, NUM_LEDS);
+  FastLED.addLeds<WS2812>(leds, DATA_PIN, NUM_LEDS);
 }
 
 void loop () {
@@ -220,7 +222,9 @@ e.g. [Teensy Prop Shield](https://nicegear.nz/product/teensy-prop-shield)
 
 ---
 
-### more dimensions
+### helper functions
+
+help you write code in terms of your shape
 
 ```
 set_color(x, y, color)
@@ -230,6 +234,9 @@ set_color(x, y, color)
 set_color(x, y, z, color)
 ```
 
+```
+set_color(root, branch, index, color)
+```
 
 ---
 
@@ -250,7 +257,26 @@ and from each chain of LEDs to the next chain.
 
 ---
 
+### 3-pin or 4-pin?
+
+some LED chips, such as the APA102, have 4 pins:
+
+1. GND
+2. DATA
+3. CLOCK
+4. +5V
+
+to reduce cost, some LED chips, such as the WS2812, have 3 pins:
+
+1. GND
+2. DATA
+3. +5V
+
+---
+
 ### 3-pin / 4-pin jst connectors
+
+[Amazon](https://www.amazon.com/RGBZONE-20Pairs-Female-Connector-Adapter/dp/B075K3M1TB)
 
 - pre-installed on LED strips by default
 - useful wire-to-wire connector
@@ -260,7 +286,7 @@ and from each chain of LEDs to the next chain.
 
 ### 3-pin / 4-pin header connectors
 
-https://www.amazon.com/gp/product/B0777BQC1P/
+[Amazon](https://www.amazon.com/gp/product/B0777BQC1P/)
 
 - useful wire-to-wire and board-to-wire connector
 - not waterproof
@@ -269,9 +295,30 @@ https://www.amazon.com/gp/product/B0777BQC1P/
 
 ### 3-pin / 4-pin waterproof connectors
 
+[Amazon](https://www.amazon.com/BTF-LIGHTING-Plastics-waterproof-connctor-Applicable-x/dp/B01LCV8T62/)
+
+- waterproof
+
 ---
 
 ### soldering tips
+
+- pre-requisites
+  - solder
+  - soldering iron
+  - wire
+  - wire stripper
+  - (recommended) multimeter
+  - (recommended) "third hand"
+- watch YouTube tutorials
+
+---
+
+### waterproofing tips
+
+buy IP67 LEDs
+
+if cutting LED strips, use silicon glue to re-seal
 
 ---
 
@@ -280,6 +327,25 @@ https://www.amazon.com/gp/product/B0777BQC1P/
 we will need a way to power the LEDs, they are very bright!
 
 ---
+
+## what is power
+
+_current_ ~= how much electricity is flowing
+
+_voltage_ ~= how strong the electricty is flowing
+
+```
+power (in watts) = current (in amps) * voltage (in volts)
+```
+
+for example:
+
+```
+10 watts = 2 amps * 5 volts
+```
+
+---
+
 
 ### power usage
 
@@ -343,6 +409,10 @@ each power supply has slightly different +5V, if they are connected they will ba
 
 ### batteries
 
+batteries are measured in volts and amp hours.
+
+an amp hour is one amp of current for an hour.
+
 ---
 
 ### 12v battery + dc step-down (buck) converter
@@ -363,6 +433,8 @@ Most cheap buck converters come with no preset voltage output, so you need to
 use a multimeter to measure the output voltage, hook the input up to a 12 volt
 battery, then turn the eensy-weensy-tiny little screw many many times until
 the voltage going into the multimeter drops down to about 5 volts.
+
+---
 
 ### 18650 batteries
 
@@ -428,7 +500,9 @@ class: center
 
 ### what are good diffusers?
 
-- good: dish foam (for packing your dishes in boxes)
+- excellent: built-in aluminum channel diffusers
+- great: dish foam (for packing your dishes in boxes)
+- great: white faux fur
 - good: bubble wrap
 - okay: baking paper
 - ???
@@ -490,13 +564,6 @@ more roll than you think you'll need.
 
 Don't order lithium ion batteries (18650s) they will take 6 months to
 arrive.
-
----
-
-### 
-
-
----
 
 ---
 

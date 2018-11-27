@@ -13,6 +13,8 @@ slides: https://dinosaur.is/leds-101
 
 source: https://github.com/ahdinosaur/leds-101
 
+<img height="350" src="./images/burning-man-led-forest.jpg" />
+
 ???
 
 ---
@@ -44,7 +46,6 @@ in our short time together, we hope to provide useful breadcrumbs to help you na
 ???
 
 ---
-class: center
 
 ## outline
 
@@ -68,39 +69,39 @@ we're going to be playing with WS2018B or [APA102C](https://www.pololu.com/produ
 - powered at 5V (or lower voltages such as 3.3V is acceptable)
 
 <a class="thumbnail" href="https://www.adafruit.com/product/2477">
-  <video preload="auto" muted="" loop="" autoplay="" poster="https://cdn-shop.adafruit.com/product-videos/1024x768/2477-04.jpg">
-    <source src="https://cdn-shop.adafruit.com/product-videos/1024x768/2477-04.mp4">
-    <img src="https://cdn-shop.adafruit.com/product-videos/1024x768/2477-04.jpg">
+  <video preload="auto" muted="" loop="" autoplay="" poster="./images/2477-04.jpg">
+    <source src="./images/2477-04.mp4">
+    <img src="./images/2477-04.jpg">
   </video>
 </a>
 <a class="thumbnail" href="https://www.adafruit.com/product/2736">
-  <video preload="auto" muted="" loop="" autoplay="" poster="https://cdn-shop.adafruit.com/product-videos/1024x768/2736-03.jpg">
-    <source src="https://cdn-shop.adafruit.com/product-videos/1024x768/2736-03.mp4">
-    <img src="https://cdn-shop.adafruit.com/product-videos/1024x768/2736-03.jpg">
+  <video preload="auto" muted="" loop="" autoplay="" poster="./images/2736-03.jpg">
+    <source src="./images/2736-03.mp4">
+    <img src="./images/2736-03.jpg">
   </video>
 </a>
 <a class="thumbnail" href="https://www.adafruit.com/product/2868">
-  <video preload="auto" muted="" loop="" autoplay="" poster="https://cdn-shop.adafruit.com/product-videos/1024x768/2868-07.jpg">
-    <source src="https://cdn-shop.adafruit.com/product-videos/1024x768/2868-07.mp4">
-    <img src="https://cdn-shop.adafruit.com/product-videos/1024x768/2868-07.jpg">
+  <video preload="auto" muted="" loop="" autoplay="" poster="./images/2868-07.jpg">
+    <source src="./images/2868-07.mp4">
+    <img src="./images/2868-07.jpg">
   </video>
 </a>
 <a class="thumbnail" href="https://www.adafruit.com/product/2860">
-  <video preload="auto" muted="" loop="" autoplay="" poster="https://cdn-shop.adafruit.com/product-videos/1024x768/2860-04.jpg">
-    <source src="https://cdn-shop.adafruit.com/product-videos/1024x768/2860-04.mp4">
-    <img src="https://cdn-shop.adafruit.com/product-videos/1024x768/2860-04.jpg">
+  <video preload="auto" muted="" loop="" autoplay="" poster="./images/2860-04.jpg">
+    <source src="./images/2860-04.mp4">
+    <img src="./images/2860-04.jpg">
   </video>
 </a>
 <a class="thumbnail" href="https://www.adafruit.com/product/2237?length=1">
-  <video preload="auto" muted="" loop="" autoplay="" poster="https://cdn-shop.adafruit.com/product-videos/1024x768/2237-08.jpg">
-  <source src="https://cdn-shop.adafruit.com/product-videos/1024x768/2237-08.mp4">
-  <img src="https://cdn-shop.adafruit.com/product-videos/1024x768/2237-08.jpg">
+  <video preload="auto" muted="" loop="" autoplay="" poster="./images/2237-08.jpg">
+  <source src="./images/2237-08.mp4">
+  <img src="./images/2237-08.jpg">
   </video>
 </a>
 <a class="thumbnail" href="https://www.adafruit.com/product/2435?length=2">
-  <video preload="auto" muted="" loop="" autoplay="" poster="https://cdn-shop.adafruit.com/product-videos/1024x768/2435-05.jpg">
-    <source src="https://cdn-shop.adafruit.com/product-videos/1024x768/2435-05.mp4">
-    <img src="https://cdn-shop.adafruit.com/product-videos/1024x768/2435-05.jpg">
+  <video preload="auto" muted="" loop="" autoplay="" poster="./images/2435-05.jpg">
+    <source src="./images/2435-05.mp4">
+    <img src="./images/2435-05.jpg">
   </video>
 </a>
 
@@ -112,20 +113,12 @@ most common form is as a strip
 
 ### other types of electro-magic lights
 
+- single (high-power) LED
 - 12v single-color LED strips
 - El-Wire
+- El-Tape
 - El-Panel
-- ???
-
----
-
-### how do you get started?
-
-there are 3 major parts to the system:
-
-1. LEDs
-1. controller
-1. power source
+- and more
 
 ---
 
@@ -139,11 +132,11 @@ to control your heap of LEDs, you will use a micro-controller (a small computer)
 
 ### [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface) (Serial Peripheral Interface)
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/SPI_single_slave.svg" />
+<img src="./images/SPI_single_slave.svg" />
 
-<img src="https://a.pololu-files.com/picture/0J6577.600.png?f2071ae9f33b8071ff69dd3a118b7ef1" />
+<img src="./images/0J6577.600.png" />
 
-<img src="https://a.pololu-files.com/picture/0J6578.600.jpg?43cdc8b658def752351be635ab28978e" />
+<img src="./images/0J6578.600.jpg" />
 
 reference: https://www.pololu.com/product/2552
 
@@ -152,6 +145,13 @@ reference: https://www.pololu.com/product/2552
 ### micro-controller
 
 we will be using the popular Ardunio flavor of micro-controllers.
+
+- [Arduino Uno](https://store.arduino.cc/usa/arduino-uno-rev3)
+  - <img width="100" src="./images/a000066_front_1_1_1.jpg" />
+- [Teensy](https://www.pjrc.com/teensy/index.html)
+  - <img width="100" src="./images/teensy32.jpg" />
+- [Adafruit Feather](https://learn.adafruit.com/adafruit-feather)
+  - <img width="100" src="./images/3857-01.jpg" />
 
 ---
 
@@ -184,20 +184,15 @@ void loop () {
 
 compare to RGB color space
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/33/HSV_color_solid_cylinder_saturation_gray.png" />
+<img width="400" src="./images/HSV_color_solid_cylinder_saturation_gray.png" />
 
 ---
 
-### example 1
+### [Noise](https://en.wikipedia.org/wiki/Perlin_noise)
 
-single: rainbow fade
+noise functions generate random numbers with smooth steps
 
----
-
-
-### example 2
-
-strip: rainbow scroll
+<img width="400" src="./images/tumblr_otdt2ybH5m1qdxg1vo1_500.gif" />
 
 ---
 
@@ -214,12 +209,6 @@ e.g. [Teensy Prop Shield](https://nicegear.nz/product/teensy-prop-shield)
 
 ---
 
-### example 3
-
-strip: rainbow chase
-
----
-
 ### more dimensions
 
 ```
@@ -230,11 +219,15 @@ set_color(x, y, color)
 set_color(x, y, z, color)
 ```
 
+
 ---
 
-### example 4
+### examples
 
-grid: explosion
+- single: rainbow fade
+- strip: rainbow scroll
+- strip: rainbow chase
+- grid: explosion
 
 ---
 
@@ -300,9 +293,9 @@ references:
 
 ### power injection
 
-<img src="https://cdn-learn.adafruit.com/assets/assets/000/010/715/medium800/leds_brownout.jpg" />
+<img src="./images/leds_brownout.jpg" />
 
-<img src="https://cdn-learn.adafruit.com/assets/assets/000/010/716/medium800/leds_nobrown.jpg" />
+<img src="./images/leds_nobrown.jpg" />
 
 ---
 
@@ -339,8 +332,6 @@ each power supply has slightly different +5V, if they are connected they will ba
 
 ### batteries
 
-
-
 ---
 
 ### 12v battery + dc step-down (buck) converter
@@ -366,7 +357,7 @@ class: center
 ### what is a diffuser?
 
 <a href="https://forum.arduino.cc/index.php?topic=415472.0">
-  <img src="http://lonen-ledlighting.com/Public/Uploads/Ckeditor/images/PC_light_diffusion_agent_LED(2).jpg" />
+  <img src="./images/PC_light_diffusion_agent_LED(2).jpg" />
 </a>
 
 ???
@@ -382,7 +373,7 @@ class: center
 ### how does a diffuser work?
 
 <a href="http://close-uppity.derekhauffe.net/diffusion/">
-  <img src="http://close-uppity.derekhauffe.net/wp-content/uploads/2013/09/figure_1-01.jpg" />
+  <img src="./images/figure_1-01.jpg" />
 </a>
 
 ???
@@ -418,26 +409,14 @@ there are 3 major parts to the system:
 ### beginner parts
 
 - LEDs: start with LED strips
+  - [Adafruit Neopixel](http://www.adafruit.com/category/168) / [AliExpress WS2812]()
+  - [Adafruit DotStar](https://www.adafruit.com/category/885) / [AliExpress APA102]()
 - LED connector: start with JST connectors
 - controller: start with Teensy
+  - [NiceGear Teensy LC](https://nicegear.nz/product/teensy-lc)
 - power source:
   - if small, use usb power pack
   - if large, use deep cycle battery
-
----
-
-### where to source parts
-
-- LEDs: Adafruit or AliExpress
-- LED connector: Adafruit or Amazon or AliExpress
-- controller: [NiceGear](https://nicegear.nz/product/teensy-lc)
-
----
-
-### 
-
-
----
 
 ---
 
@@ -449,6 +428,6 @@ there are 3 major parts to the system:
 
 thanks for your attention
 
-i barely even scratched the surface
+we barely even scratched the surface
 
 if you want to learn more, then get amongst!

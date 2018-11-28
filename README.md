@@ -407,11 +407,16 @@ each power supply has slightly different +5V, if they are connected they will ba
 
 ---
 
-### batteries
+### battery electrons
 
 batteries are measured in volts and amp hours.
 
 an amp hour is one amp of current for an hour.
+
+many batteries together:
+
+- in parallel, add current
+- in series, add voltage
 
 ---
 
@@ -457,6 +462,8 @@ Use 4 x AA's in a little holder (search for aa holder on aliexpress) to power yo
 stuff. Rechargeable batteries are best. Eneloop make excellent rechargeables and
 a fast charger. The nitecore d4 charger can recharge AAs and will probably
 run quite well off a 12v system for recharging at the burn.
+
+[Adafruit](https://www.adafruit.com/product/830)
 
 ---
 class: center
@@ -530,19 +537,11 @@ there are 3 major parts to the system:
   - [Adafruit Neopixel](http://www.adafruit.com/category/168) / [AliExpress WS2812]()
   - [Adafruit DotStar](https://www.adafruit.com/category/885) / [AliExpress APA102]()
 - LED connector: start with JST connectors
-- controller: start with Teensy
+- controller: start with [Arduino Nano](https://store.arduino.cc/usa/arduino-nano) or [Teensy](https://www.pjrc.com/store/teensylc.html)
   - [NiceGear Teensy LC](https://nicegear.nz/product/teensy-lc)
 - power source:
   - if small, use usb power pack
   - if large, use deep cycle battery
-
----
-
-### where to source parts
-
-- LEDs: Adafruit or AliExpress
-- LED connector: Adafruit or Amazon or AliExpress
-- controller: [NiceGear](https://nicegear.nz/product/teensy-lc)
 
 ### How to aliexpress
 
